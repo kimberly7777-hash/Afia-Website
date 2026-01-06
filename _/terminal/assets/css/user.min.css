@@ -1,0 +1,81 @@
+/* -------------------------------------------------------------------------- */
+/*                                Falcon Button                               */
+/* -------------------------------------------------------------------------- */
+/* prettier-ignore */
+
+.bg-success {
+  background-color: #197A7B; /* Your desired background color */
+  border-color: #197A7B; /* Your desired border color */
+  color: white;
+}
+.btn-falcon-default {
+  background-color: #197A7B; /* Your desired background color */
+  border-color: #197A7B; /* Your desired border color */
+  color: white;
+}
+.btn-primary {
+  background-color: #197A7B; /* Your desired background color */
+  border-color: #197A7B; /* Your desired border color */
+}
+
+.btn-primary:hover {
+  background-color: #1C7F7F; /* Your desired hover background color */
+  border-color: #1C7F7F; /* Your desired hover border color */
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: #1C7F7F; /* Your desired active background color */
+  border-color: #1C7F7F; /* Your desired active border color */
+}
+
+a {
+  color: #197A7B; /* Default link color */
+  text-decoration: none; /* Remove underlines */
+}
+
+a:hover {
+  color: #1C7F7F; /* Hover color */
+
+}
+
+a:focus {
+  color: #1C7F7F; /* Focus color (same as hover or different) */
+
+}
+
+/* Example: Change focus outline to a dashed red line */
+*:focus { /* Applies to all focusable elements */
+  outline: 2px solid #1C7F7F !important; 
+}
+
+/* Style labels for better visual separation */
+.form-check-label {
+  margin-left: 0.5rem;
+}
+
+/* Change the checkmark color */
+.form-check-input:checked {
+  background-color: #197A7B; /* Change background color when checked */
+  border-color: #197A7B; /* Change border color when checked */
+}
+
+/* Customize focus style */
+.form-check-input:focus {
+  border-color: #1C7F7F;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Light blue shadow */
+}
+
+/* Example: Custom active style for nav links */
+.nav-link.active {
+ 
+  color: #197A7B; /* White text */
+  
+}
+
+/* Example: Custom active style for list group items */
+.list-group-item.active {
+  color: #197A7B;
+}

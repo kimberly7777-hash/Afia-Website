@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+ErrorDocument 404 /sysErr/404.php
