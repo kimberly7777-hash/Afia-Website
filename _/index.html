@@ -84,7 +84,7 @@
       opacity: .9;
     }
     
-    /* Header */
+    /* Header - UPDATED to white background */
     .site-header {
       position: fixed;
       inset: 0 0 auto 0;
@@ -92,8 +92,8 @@
       z-index: 60;
       display: flex;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(5, 92, 92, 0.98), rgba(5, 92, 92, 0.95));
-      border-bottom: 1px solid rgba(5, 92, 92, 0.2);
+      background: #ffffff;
+      border-bottom: 1px solid rgba(5, 92, 92, 0.1);
       backdrop-filter: saturate(180%) blur(10px);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
@@ -103,6 +103,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      height: 72px;
     }
     
     nav ul {
@@ -127,24 +128,32 @@
       display: none;
       background: none;
       border: 0;
-      color: #fff;
+      color: var(--primary); /* Updated to dark turquoise */
       font-size: 1.25rem;
       cursor: pointer;
       z-index: 70;
     }
     
-    /*.logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 10px;
+    /* Logo - FIXED: Reduced size to fit in header */
+    .brand {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .brand .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
       overflow: hidden;
       place-items: center;
-      background: #fff;
+      /*background: #fff;*/
       display: grid;
-      padding: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 6px;
+      /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
+      margin: 0;
     }
-    */
+    
     .logo img {
       width: 100%;
       height: 100%;
@@ -169,8 +178,9 @@
       margin-top: 2px;
     }
     
+    /* Navigation links - UPDATED to dark turquoise */
     .nav a {
-      color: #fff;
+      color: var(--primary); /* Dark turquoise */
       text-decoration: none;
       font-weight: 600;
       font-size: .95rem;
@@ -179,11 +189,11 @@
     }
     
     .nav a:hover {
-      color: #FFB800;
+      color: var(--accent); /* Gold/Yellow on hover */
     }
     
     nav a[aria-current="page"] {
-      color: #FFB800;
+      color: var(--accent); /* Gold/Yellow for current page */
       font-weight: 700;
     }
     
@@ -196,7 +206,7 @@
         right: 0;
         bottom: 0;
         width: 280px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        background: #ffffff; /* Changed to white for mobile */
         padding: 80px 2rem 2rem;
         flex-direction: column;
         align-items: flex-start;
@@ -222,6 +232,7 @@
       .brand .logo {
         width: 50px;
         height: 50px;
+        padding: 4px;
       }
       
       .logo-text {
@@ -259,13 +270,20 @@
         display: block;
         padding: 0.8rem 1rem;
         width: 100%;
-        border-radius: 8px;
+        border-radius: 6px; /* Reduced from 8px */
         transition: all 0.3s;
+        color: var(--primary); /* Dark turquoise for mobile */
       }
       
       nav ul a:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(5, 92, 92, 0.1); /* Light turquoise background */
         transform: translateX(5px);
+        color: var(--accent); /* Gold on hover */
+      }
+      
+      nav ul a[aria-current="page"] {
+        color: var(--accent); /* Gold for current page */
+        background: rgba(255, 184, 0, 0.1); /* Light gold background */
       }
       
       /* Close button for mobile menu */
@@ -275,23 +293,9 @@
         right: 20px;
         background: none;
         border: none;
-        color: #fff;
+        color: var(--primary); /* Dark turquoise */
         font-size: 1.5rem;
         cursor: pointer;
-      }
-      
-      /* Mobile menu header */
-      .mobile-menu-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        padding: 0 2rem;
-        background: rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
     
@@ -301,7 +305,7 @@
       align-items: center;
       gap: .5rem;
       padding: .7rem 1rem;
-      border-radius: 999px;
+      border-radius: 8px; /* Reduced from 999px */
       font-weight: 700;
       text-decoration: none;
       border: 1px solid transparent;
@@ -344,7 +348,7 @@
       box-shadow: 0 12px 28px rgba(37, 211, 102, 0.25);
     }
     
-    /* Hero */
+    /* Hero - RESTORED ORIGINAL */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -385,31 +389,70 @@
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
-    /* Cards */
+    /* Cards with Images */
     .card {
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 12px; /* FIXED: Reduced from 20px/16px to 12px */
       background: var(--panel);
       box-shadow: var(--shadow);
-      padding: 1.5rem;
       transition: .3s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
       border-color: rgba(5, 92, 92, 0.2);
+    }
+    
+    .card-image {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    
+    /* Card Content - INCREASED padding for better spacing */
+    .card-content {
+      padding: 2rem; /* INCREASED from 1.8rem to 2rem */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .card h3 {
       font: 800 1.05rem/1.2 Poppins;
-      margin: .2rem 0 .4rem;
+      margin: .2rem 0 1.5rem; /* INCREASED bottom margin from 1rem to 1.5rem */
       color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
     }
     
-    /* Sections */
+    .card p {
+      margin-top: 0;
+      margin-bottom: 1.5rem; /* INCREASED from 1.2rem to 1.5rem */
+      color: var(--text-light);
+      flex: 1;
+    }
+    
+    /* Sections - INCREASED padding */
     section {
-      padding: 100px 0;
+      padding: 120px 0; /* INCREASED from 100px to 120px */
     }
     
     .quick {
@@ -420,6 +463,10 @@
       .quick {
         grid-template-columns: 1fr;
       }
+      
+      .card-image {
+        height: 180px;
+      }
     }
     
     /* Hide header actions on mobile */
@@ -429,18 +476,18 @@
       }
     }
     
-    /* Form */
+    /* Form - INCREASED spacing */
     form {
       display: grid;
-      gap: .8rem;
+      gap: 1.5rem; /* INCREASED from 1.2rem to 1.5rem */
     }
     
     input, textarea, select {
       background: var(--panel);
       color: var(--text);
       border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: .8rem;
+      border-radius: 8px; /* Reduced from 10px */
+      padding: 1.2rem; /* INCREASED from 1rem to 1.2rem */
       font-family: inherit;
     }
     
@@ -459,7 +506,7 @@
     details {
       transition: .3s;
       background: var(--panel);
-      border-radius: 14px;
+      border-radius: 10px; /* Reduced from 14px/12px to 10px */
     }
     
     details:hover {
@@ -487,10 +534,31 @@
       content: "▾ ";
     }
     
+    /* Footer - UPDATED to dark turquoise */
     footer {
-      padding: 36px 0 60px;
-      color: var(--text-light);
-      background: linear-gradient(to bottom, var(--panel), #f0f7f7);
+      padding: 50px 0 80px; /* INCREASED padding */
+      color: rgba(255, 255, 255, 0.8);
+      background: linear-gradient(to bottom, var(--primary-dark), var(--primary));
+      border-top: 1px solid rgba(5, 92, 92, 0.2);
+    }
+    
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
     }
     
     /* Back to top */
@@ -509,114 +577,270 @@
       pointer-events: auto;
     }
     
-    /* Impact Grid */
-    .impact-grid {
+    /* IMPACT SECTION */
+    #impact {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .impact-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(5, 92, 92, 0.1), rgba(46, 139, 87, 0.1));
+      z-index: -1;
+    }
+    
+    .impact-background::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(46, 139, 87, 0.1) 0%, transparent 70%);
+      animation: float 20s infinite linear;
+    }
+    
+    .impact-background::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(5, 92, 92, 0.1) 0%, transparent 70%);
+      animation: float 25s infinite linear reverse;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    .impact-stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
+      gap: 2rem; /* INCREASED from 1.5rem to 2rem */
+      margin: 3rem 0;
     }
     
-    .impact-item {
+    .impact-stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 12px; /* FIXED: Reduced from 20px/16px to 12px */
+      padding: 2rem; /* INCREASED from 1.5rem to 2rem */
       text-align: center;
-      padding: 1.5rem;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(5, 92, 92, 0.05), rgba(46, 139, 87, 0.05));
-      border: 1px solid rgba(5, 92, 92, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
     
-    .impact-value {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: .3rem;
+    .impact-stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
     
-    /* Stats */
-    .stats-container {
+    .impact-stat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .impact-stat-card:hover .stat-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .stat-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      align-items: center;
       justify-content: center;
-    }
-    
-    .stat-box {
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-      padding: 1.5rem;
-      border-radius: 16px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
+      margin: 0 auto 1.5rem; /* INCREASED from 1rem to 1.5rem */
+      font-size: 1.8rem;
+      color: white;
+      transition: all 0.3s ease;
     }
     
     .stat-number {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 800;
       color: var(--primary);
-      margin-bottom: .5rem;
+      margin-bottom: .8rem; /* INCREASED from .5rem to .8rem */
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    /* Content sections */
-    .content-section {
-      background: linear-gradient(160deg, rgba(5, 92, 92, 0.03), rgba(46, 139, 87, 0.03));
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 2rem 0;
-      border: 1px solid rgba(5, 92, 92, 0.1);
+    .stat-label {
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 1rem;
     }
     
-    /* Image gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .gallery-item {
-      border-radius: 12px;
+    .impact-highlight {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 16px; /* Reduced from 25px/20px to 16px */
+      padding: 3rem; /* INCREASED from 2rem to 3rem */
+      margin: 3rem 0;
+      position: relative;
       overflow: hidden;
+      box-shadow: 0 20px 40px rgba(5, 92, 92, 0.2);
+    }
+    
+    .impact-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 200px;
       height: 200px;
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: pulse 4s infinite;
     }
     
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .3s;
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
     }
     
-    .gallery-item:hover img {
-      transform: scale(1.05);
+    .co2-value-large {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.8rem; /* INCREASED from 0.5rem to 0.8rem */
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      text-align: center; /* ADDED: Center align the CO2 value */
+      width: 100%; /* ADDED: Ensure full width for centering */
     }
     
-    /* Chip */
-    .chip {
-      display: inline-flex;
+    .co2-subscript-large {
+      font-size: 2rem;
+      vertical-align: sub;
+      font-weight: 600;
+    }
+    
+    .impact-visual {
+      display: flex;
       align-items: center;
-      gap: .45rem;
-      padding: .4rem .7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.15);
-      font-weight: 700;
-      color: #fff;
-      backdrop-filter: blur(10px);
+      justify-content: space-between;
+      margin-top: 3rem; /* INCREASED from 2rem to 3rem */
+      padding: 2rem; /* INCREASED from 1.5rem to 2rem */
+      background: white;
+      border-radius: 12px; /* FIXED: Reduced from 20px/16px to 12px */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
     
-    /* Brand wordmark */
-    .brand-wordmark {
+    .visual-item {
+      text-align: center;
+      flex: 1;
+      padding: 1.5rem; /* INCREASED from 1rem to 1.5rem */
+    }
+    
+    .visual-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem; /* INCREASED from 1rem to 1.5rem */
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .visual-item:hover .visual-icon {
+      background: var(--primary);
+      color: white;
+      transform: rotate(15deg);
+    }
+    
+    /* CO2 Section */
+    .co2-section {
+      position: relative;
+      padding: 3rem; /* INCREASED from 2.5rem to 3rem */
+      border-radius: 16px; /* Reduced from 25px/20px to 16px */
+      overflow: hidden;
+      margin-top: 3rem; /* INCREASED from 2rem to 3rem */
+      background: linear-gradient(rgba(5, 92, 92, 0.9), rgba(5, 92, 92, 0.95)), 
+                  url('https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Reduced from 25px 50px */
+      animation: fadeIn 1s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .co2-section h3 {
+      font: 800 2rem/1.2 Poppins;
+      color: #fff;
+      margin-bottom: 1.5rem; /* INCREASED from 1rem to 1.5rem */
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .co2-value {
+      font-size: 4rem;
       font-weight: 800;
       color: #fff;
-      margin-left: .5rem;
-      font-size: 1.2rem;
+      margin-bottom: 0.8rem; /* INCREASED from 0.5rem to 0.8rem */
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center; /* ADDED: Center align the CO2 value */
+      width: 100%; /* ADDED: Ensure full width for centering */
     }
     
-    /* Muted text */
-    .muted {
-      color: var(--text-light);
+    .co2-subscript {
+      font-size: 2rem;
+      vertical-align: sub;
+      font-weight: 600;
+    }
+    
+    /* Animation classes */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Learn More button specific */
+    .learn-more-btn {
+      margin-top: 1.5rem; /* INCREASED from 1rem to 1.5rem */
+      font-size: .88rem;
+      padding: .75rem 1.2rem; /* INCREASED padding */
     }
     
     /* WhatsApp Floating Button */
@@ -635,13 +859,15 @@
       justify-content: center;
       font-size: 30px;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-      transition: all 0.3s;
+      transition: all 0.3s ease;
       text-decoration: none;
+      animation: pulse 2s infinite;
     }
     
     .whatsapp-float:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+      animation: none;
     }
     
     .whatsapp-text {
@@ -657,10 +883,237 @@
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     
     .whatsapp-float:hover .whatsapp-text {
       opacity: 1;
+    }
+    
+    /* Chip - UPDATED to white */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .6rem 1rem; /* INCREASED padding */
+      border-radius: 20px; /* Reduced from 999px */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
+      font-weight: 700;
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Chip icon - UPDATED to white */
+    .chip i {
+      color: #fff;
+    }
+    
+    /* Content Section - FIXED border-radius */
+    .content-section {
+      background: linear-gradient(160deg, rgba(5, 92, 92, 0.03), rgba(46, 139, 87, 0.03));
+      border-radius: 12px; /* FIXED: Reduced from 20px/16px to 12px */
+      padding: 2.5rem; /* INCREASED from 1.5rem to 2.5rem */
+      margin: 2.5rem 0; /* INCREASED from 2rem to 2.5rem */
+      border: 1px solid rgba(5, 92, 92, 0.1);
+    }
+    
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem; /* INCREASED from 1rem to 1.5rem */
+      margin-top: 3rem; /* INCREASED from 2rem to 3rem */
+    }
+    
+    .gallery-item {
+      border-radius: 10px; /* Reduced from 12px to 10px */
+      overflow: hidden;
+      height: 200px;
+      border: 1px solid var(--line);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Stats Container */
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem; /* INCREASED from 1.5rem to 2rem */
+      justify-content: center;
+    }
+    
+    .stat-box {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      padding: 2rem; /* INCREASED from 1.5rem to 2rem */
+      border-radius: 12px; /* FIXED: Reduced from 16px to 12px */
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .co2-section {
+        padding: 2rem 1.5rem; /* INCREASED padding */
+      }
+      
+      .co2-value {
+        font-size: 2.5rem;
+      }
+      
+      .co2-value-large {
+        font-size: 2.5rem;
+      }
+      
+      .co2-subscript-large {
+        font-size: 1.5rem;
+      }
+      
+      .impact-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .impact-visual {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem;
+      }
+      
+      .impact-highlight {
+        padding: 2rem 1.5rem;
+      }
+      
+      .content-section {
+        padding: 1.5rem;
+      }
+      
+      .impact-stat-card {
+        padding: 1.5rem;
+      }
+      
+      /* Mobile card adjustments */
+      .card-content {
+        padding: 1.5rem; /* Adjusted for mobile */
+      }
+      
+      input, textarea, select {
+        padding: 0.8rem; /* Adjusted for mobile */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .stats-container {
+        flex-direction: column;
+      }
+      
+      .stat-box {
+        min-width: 100%;
+      }
+      
+      .whatsapp-text {
+        display: none;
+      }
+      
+      .card-image {
+        height: 150px;
+      }
+      
+      .gallery-item {
+        height: 180px;
+      }
+      
+      .co2-value-large {
+        font-size: 2rem;
+      }
+      
+      .co2-value {
+        font-size: 2rem;
+      }
+      
+      /* Small mobile adjustments */
+      .card-content {
+        padding: 1.2rem; /* Adjusted for small mobile */
+      }
+      
+      #impact .card,
+      #contact .card {
+        padding: 1.5rem; /* Adjusted for small mobile */
+      }
+    }
+    
+    /* INCREASED padding for specific sections - NEW */
+    #impact .card {
+      padding: 2rem; /* INCREASED from 1.8rem to 2rem */
+    }
+    
+    #contact .card {
+      padding: 2rem; /* INCREASED from 1.8rem to 2rem */
+    }
+    
+    /* Specifically for partner with us card - NEW */
+    #contact .card:last-child {
+      padding: 2.5rem; /* INCREASED from 2rem to 2.5rem */
+    }
+    
+    /* Adjust form heading margin in contact section - NEW */
+    #contact .card h3 {
+      margin-bottom: 2rem; /* INCREASED from 1.5rem to 2rem */
+    }
+    
+    /* Adjust form paragraph margin in contact section - NEW */
+    #contact .card .muted {
+      margin-bottom: 2rem; /* INCREASED from 1.5rem to 2rem */
+    }
+    
+    /* ADDED: Additional spacing improvements */
+    .hero p {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero .btn {
+      margin-top: 1.5rem;
+    }
+    
+    /* ADDED: Better spacing for headings */
+    h2 {
+      margin-bottom: 2.5rem !important; /* Force important for all h2 */
+    }
+    
+    /* ADDED: Better spacing for cards in about section */
+    #about .card {
+      padding: 2rem;
+    }
+    
+    #about .card h3 {
+      margin-bottom: 1.2rem;
+    }
+    
+    #about .card p {
+      margin-bottom: 1.5rem;
+    }
+    
+    /* ADDED: Better spacing for product cards */
+    #products .card-content {
+      padding: 2rem;
+    }
+    
+    /* ADDED: Better spacing between sections */
+    section:not(:first-child) {
+      margin-top: 1.5rem;
     }
   </style>
 </head>
@@ -671,7 +1124,7 @@
   <div class="menu-overlay" id="menuOverlay"></div>
   
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/255742930833" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/message/33SMSAROJXKDP1" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="bi bi-whatsapp"></i>
     <span class="whatsapp-text">Chat with us on WhatsApp</span>
   </a>
@@ -680,14 +1133,18 @@
   <header class="site-header" id="site-header">
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <div class="logo-text">
-            <a href="#" class="logo">
-                <img src="images/logo.png" alt="Afia Orbit Logo"/>
-            </a>
+        <!-- LOGO - EMPTY src FOR YOU TO INSERT -->
+        <div class="logo">
+          <img src="images/logo.png" alt="Afia Orbit Logo" />
+        </div>
+        <div style="margin-left: 10px;">
+          <div style="font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--primary); line-height: 1;">
+            Afia Orbit
+          </div>
+          <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary);">
+            Waste to Energy
           </div>
         </div>
-        <!--<span class="brand-wordmark" aria-hidden="true">Afia Orbit</span>-->
       </div>
       <nav aria-label="Main">
         <button class="hamburger" aria-controls="menu" aria-expanded="false" id="hamburgerBtn">
@@ -702,7 +1159,7 @@
         </ul>
       </nav>
       <div class="actions">
-        <a class="btn btn-green" href="https://wa.me/255742930833" target="_blank">
+        <a class="btn btn-green" href="https://wa.me/message/33SMSAROJXKDP1" target="_blank">
           <i class="bi bi-whatsapp"></i> WhatsApp
         </a>
       </div>
@@ -710,22 +1167,22 @@
   </header>
 
   <!-- Hero / Home -->
-  <section class="hero" id="home" style="padding:140px 0 110px">
+  <section class="hero" id="home" style="padding:160px 0 130px">
     <div class="container">
       <span class="chip">
         <i class="bi bi-recycle"></i> Transforming Waste to Energy
       </span>
       <h1>Tech-Driven Waste Management</h1>
-      <p style="max-width:70ch;color:#fff;font-size:1.1rem;line-height:1.7">
+      <p style="max-width:70ch;color:#fff;font-size:1.1rem;line-height:1.7;margin-top:1.5rem;margin-bottom:2.5rem">
         Afia Orbit is transforming Municipal Solid Waste (MSW) into clean energy through innovative green technologies. 
         We process waste into compressed biogas, quality recyclables, and methanol, working with stakeholders across Tanzania 
         to build a sustainable future.
       </p>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem">
-        <a class="btn btn-primary" href="#about" style="font-size:.95rem;padding:.8rem 1.2rem">
-          <i class="bi bi-info-circle"></i> Learn More
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem">
+        <a class="btn btn-primary" href="https://afiaorbit.co.tz" target="_blank" style="font-size:.95rem;padding:.9rem 1.4rem">
+          <i class="bi bi-box-arrow-up-right"></i> Visit Platform
         </a>
-        <a class="btn btn-green" href="https://wa.me/255742930833" target="_blank" style="font-size:.95rem;padding:.8rem 1.2rem">
+        <a class="btn btn-green" href="https://wa.me/message/33SMSAROJXKDP1" target="_blank" style="font-size:.95rem;padding:.9rem 1.4rem">
           <i class="bi bi-whatsapp"></i> Chat on WhatsApp
         </a>
       </div>
@@ -733,12 +1190,12 @@
   </section>
 
   <!-- About -->
-  <section id="about" style="padding:80px 0;background:linear-gradient(to bottom, #f8fafc, #f0f7f7)">
+  <section id="about" style="padding:100px 0;background:linear-gradient(to bottom, #f8fafc, #f0f7f7)">
     <div class="container">
       <div class="content-section">
-        <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:1.5rem;color:var(--primary)">About Afia Orbit</h2>
+        <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:2.5rem;color:var(--primary)">About Afia Orbit</h2>
         
-        <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:2rem;">
+        <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:2.5rem;">
           <div class="card">
             <h3 style="display:flex;align-items:center;gap:.6rem">
               <i class="bi bi-building" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
@@ -772,14 +1229,19 @@
         </div>
         
         <div class="gallery">
-          <div class="gallery-item">
-           <img src="images/o.png" alt="Waste sorting Facility"/>
+          <!-- About Image 1 - EMPTY src FOR YOU TO INSERT -->
+          <div class="gallery-item">  
+            <img src="images/s.png" alt="Afia Orbit Waste Management Facility" />
           </div>
+          
+          <!-- About Image 2 - EMPTY src FOR YOU TO INSERT -->
           <div class="gallery-item">
-           <img src="images/s.png" alt="Biogas production"/>
+            <img src="images/o.png" alt="Biogas production"/>
           </div>
+          
+          <!-- About Image 3 - EMPTY src FOR YOU TO INSERT -->
           <div class="gallery-item">
-           <img src="images/en.png" alt="Recycling process"/>
+            <img src="images/en.png" alt="Recycling Operations" />
           </div>
         </div>
       </div>
@@ -787,136 +1249,220 @@
   </section>
 
   <!-- Products & Services -->
-  <section id="products" style="padding:80px 0;background:linear-gradient(to bottom, #f0f7f7, #e8f4f4)">
+  <section id="products" style="padding:100px 0;background:linear-gradient(to bottom, #f0f7f7, #e8f4f4)">
     <div class="container">
-      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:1.5rem;color:var(--primary)">Products & Services</h2>
+      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:2.5rem;color:var(--primary)" class="animate-on-scroll">Products & Services</h2>
       
       <div class="grid quick">
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-laptop" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            AFIA Terminal
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            A waste management software platform catered to waste collectors/haulers with valid municipal contracts for waste 
-            collections to easily manage their operations.
-          </p>
-          <a class="btn btn-primary" href="#contact" style="margin-top:.6rem;font-size:.88rem;padding:.65rem .95rem">
-            <i class="bi bi-info-circle"></i> Learn More
-          </a>
+        <!-- AFIA Terminal Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/dashboard.png" alt="AFIA Terminal Software Dashboard">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-laptop" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
+              AFIA Terminal
+            </h3>
+            <p>
+              A waste management software platform catered to waste collectors/haulers with valid municipal contracts for waste 
+              collections to easily manage their operations, track routes, and optimize collection efficiency.
+            </p>
+            <a class="btn btn-primary learn-more-btn" href="https://afiaorbit.co.tz" target="_blank">
+              <i class="bi bi-box-arrow-up-right"></i> Visit Platform
+            </a>
+          </div>
         </div>
         
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-fire" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            Compressed Biogas
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            We transform organic waste into compressed biogas (CBG) for cooking and transportation fuel, providing a clean 
-            energy alternative.
-          </p>
+        <!-- Compressed Biogas Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/biogas.png" alt="Compressed Biogas Production">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-fire" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
+              Compressed Biogas
+            </h3>
+            <p>
+              We transform organic waste into compressed biogas (CBG) for cooking and transportation fuel, providing a clean 
+              energy alternative that reduces carbon emissions and dependence on fossil fuels.
+            </p>
+          </div>
         </div>
         
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-recycle" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            Quality Recyclables
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            Our material recovery facility collects, sorts, and recovers recyclable materials sold back to manufacturers for processing.
-          </p>
+        <!-- Quality Recyclables Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/recycling.png" alt="Recycling Sorting Facility">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-recycle" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
+              Quality Recyclables
+            </h3>
+            <p>
+              Our material recovery facility collects, sorts, and recovers recyclable materials sold back to manufacturers for processing, 
+              creating a circular economy and reducing landfill waste.
+            </p>
+          </div>
         </div>
       </div>
       
-      <div class="grid quick" style="margin-top:1.5rem">
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-droplet" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            Methanol Production
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            Through pyrolysis, we convert unrecyclable materials into syngas that is used for heating, production of methanol, 
-            and electricity generation.
-          </p>
+      <div class="grid quick" style="margin-top:2.5rem">
+        <!-- Methanol Production Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/methanol.png" alt="Methanol Production Plant">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-droplet" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
+              Methanol Production
+            </h3>
+            <p>
+              Through pyrolysis, we convert unrecyclable materials into syngas that is used for heating, production of methanol, 
+              and electricity generation, turning waste into valuable energy resources.
+            </p>
+          </div>
         </div>
         
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-people" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            Stakeholder Collaboration
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            We work with industry stakeholders including LGAs, Waste Contractors, and Households to improve waste management 
-            in Dar Es Salaam, Tanzania.
-          </p>
+        <!-- Stakeholder Collaboration Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/meeting.png" alt="Community Stakeholder Meeting">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-people" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
+              Stakeholder Collaboration
+            </h3>
+            <p>
+              We work with industry stakeholders including LGAs, Waste Contractors, and Households to improve waste management 
+              in Dar Es Salaam, Tanzania through education, partnerships, and community engagement.
+            </p>
+          </div>
         </div>
         
-        <div class="card">
-          <h3 style="display:flex;align-items:center;gap:.6rem">
-            <i class="bi bi-lightning-charge" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
-            Clean Energy Solutions
-          </h3>
-          <p style="margin-top:.8rem;color:var(--text-light)">
-            Our comprehensive approach turns waste problems into energy solutions, reducing landfill use and creating 
-            sustainable energy sources.
-          </p>
+        <!-- Clean Energy Solutions Card with Image - EMPTY src FOR YOU TO INSERT -->
+        <div class="card animate-on-scroll">
+          <div class="card-image">
+            <img src="images/clean.png" alt="Clean Energy Solutions">
+          </div>
+          <div class="card-content">
+            <h3>
+              <i class="bi bi-lightning-charge" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width=32px;height=32px;display=grid;place-items=center;border-radius=50%"></i> 
+              Clean Energy Solutions
+            </h3>
+            <p>
+              Our comprehensive approach turns waste problems into energy solutions, reducing landfill use and creating 
+              sustainable energy sources that power homes, businesses, and communities.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Impact -->
-  <section id="impact" style="padding:80px 0;background:linear-gradient(to bottom, #e8f4f4, #e0f0f0)">
+  <section id="impact" style="padding:100px 0;">
+    <div class="impact-background"></div>
     <div class="container">
-      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:1.5rem;color:var(--primary)">Our Impact</h2>
-      <p style="max-width:70ch;margin-bottom:2rem;font-size:1.1rem;color:var(--text-light)">
-        Since 2023, we've been making measurable progress toward a cleaner Tanzania. Here's what we've achieved so far:
+      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:2.5rem;color:var(--primary);text-align:center" class="animate-on-scroll">Our Environmental Impact</h2>
+      <p style="max-width:70ch;margin:0 auto 3.5rem;font-size:1.1rem;color:var(--text-light);text-align:center" class="animate-on-scroll">
+        Since 2023, we've been making measurable progress toward a cleaner Tanzania. Here's our journey toward sustainability:
       </p>
       
-      <div class="stats-container">
-        <div class="stat-box">
-          <div class="stat-number">950 MT</div>
-          <div class="stat-label" style="color:var(--text-light)">Organic Waste Processed</div>
-        </div>
-        
-        <div class="stat-box">
-          <div class="stat-number">50 MT</div>
-          <div class="stat-label" style="color:var(--text-light)">Plastic Recycled</div>
-        </div>
-        
-        <div class="stat-box">
-          <div class="stat-number">3 MT</div>
-          <div class="stat-label" style="color:var(--text-light)">Paper Recycled</div>
-        </div>
-        
-        <div class="stat-box">
-          <div class="stat-number">5 MT</div>
-          <div class="stat-label" style="color:var(--text-light)">Glass Recycled</div>
-        </div>
-        
-        <div class="stat-box">
-          <div class="stat-number">10 MT</div>
-          <div class="stat-label" style="color:var(--text-light)">Metals Recycled</div>
-        </div>
-      </div>
-      
-      <div style="text-align:center;margin-top:3rem;padding:2rem;border-radius:16px;background:linear-gradient(135deg, rgba(5, 92, 92, 0.08), rgba(46, 139, 87, 0.08));border:1px solid rgba(5, 92, 92, 0.15)">
-        <h3 style="font:800 1.5rem/1.2 Poppins;color:var(--primary);margin-bottom:.5rem">Total CO2e Saved</h3>
-        <div style="font-size:3rem;font-weight:800;color:var(--primary)">1,360 tCO2e</div>
-        <p style="margin-top:.5rem;color:var(--text-light)">Equivalent to taking 295 cars off the road for a year</p>
-      </div>
-      
-      <div class="content-section" style="margin-top:3rem">
-        <h3 style="font:800 1.3rem/1.2 Poppins;color:var(--primary);margin-bottom:1rem">Emissions Reduction</h3>
-        <p style="color:var(--text-light)">Our waste-to-energy processes significantly reduce harmful emissions:</p>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1.5rem;margin-top:1rem">
-          <div>
-            <h4 style="color:var(--primary);margin-bottom:.5rem">Carbon Emissions</h4>
-            <p style="color:var(--text-light)">By diverting waste from landfills and creating clean energy, we reduce carbon emissions that contribute to climate change.</p>
+      <!-- Beautiful Stats Cards -->
+      <div class="impact-stats">
+        <div class="impact-stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="bi bi-trash"></i>
           </div>
-          <div>
-            <h4 style="color:var(--primary);margin-bottom:.5rem">GHG Emissions</h4>
-            <p style="color:var(--text-light)">Our processes minimize greenhouse gas emissions that would otherwise be released from decomposing waste in landfills.</p>
+          <div class="stat-number">950 MT</div>
+          <div class="stat-label">Organic Waste Processed</div>
+          <p style="margin-top:1rem;color:var(--text-lighter);font-size:.9rem">
+            Diverted from landfills and converted into clean energy
+          </p>
+        </div>
+        
+        <div class="impact-stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="bi bi-recycle"></i>
+          </div>
+          <div class="stat-number">68 MT</div>
+          <div class="stat-label">Materials Recycled</div>
+          <p style="margin-top:1rem;color:var(--text-lighter);font-size:.9rem">
+            Plastic, paper, glass & metals given new life
+          </p>
+        </div>
+        
+        <div class="impact-stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="bi bi-tree"></i>
+          </div>
+          <div class="stat-number">15,000+</div>
+          <div class="stat-label">Trees Equivalent</div>
+          <p style="margin-top:1rem;color:var(--text-lighter);font-size:.9rem">
+            Carbon offset equivalent to planting thousands of trees
+          </p>
+        </div>
+        
+        <div class="impact-stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="bi bi-car-front"></i>
+          </div>
+          <div class="stat-number">295 Cars</div>
+          <div class="stat-label">Off the Road</div>
+          <p style="margin-top:1rem;color:var(--text-lighter);font-size:.9rem">
+            Emissions saved equals removing cars for a year
+          </p>
+        </div>
+      </div>
+      
+      <!-- CO2 Highlight Section - MODIFIED: Single empty container for your image -->
+      <div class="impact-highlight animate-on-scroll">
+        <h3 style="font:800 1.8rem/1.2 Poppins;color:#fff;margin-bottom:1.5rem;text-align:center">Total Carbon Emission Reduction</h3>
+        <div class="co2-value-large">1,360 tCO<sub class="co2-subscript-large">2</sub>e</div>
+        <p style="margin-top:1rem;color:rgba(255, 255, 255, 0.9);text-align:center;font-size:1.1rem">
+          Equivalent to the annual electricity consumption of 250 Tanzanian households
+        </p>
+        
+        <!-- SINGLE EMPTY CONTAINER FOR YOUR IMAGE - No icons, no circular effects -->
+        <div class="image-placeholder" style="width: 100%; height: 300px; background: white; border-radius: 12px; margin-top: 2rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); overflow: hidden;">
+          <!-- YOUR IMAGE WILL GO HERE -->
+          <img src="images/carbon.png" alt="Your Image" style="width: 100%; height: 100%; object-fit: cover;"> 
+          <div style="color: var(--text-light); font-size: 1.1rem; text-align: center; padding: 2rem;">
+           <!-- <i class="bi bi-image" style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem; display: block;"></i>
+            <div>Your image will appear here</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-lighter);">Replace this placeholder with your image</div>-->
+          </div>
+        </div>
+      </div>
+      
+      <!-- Environmental Benefits -->
+      <div style="margin-top:5rem">
+        <h3 style="font:800 1.5rem/1.2 Poppins;color:var(--primary);margin-bottom:2rem;text-align:center" class="animate-on-scroll">How We Create Impact</h3>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:2.5rem;">
+          <div class="card animate-on-scroll">
+            <h3 style="color:var(--primary)">Waste Diversion</h3>
+            <p style="color:var(--text-light);margin-top:1rem">
+              We prevent over 1,000 tons of waste from reaching landfills annually, reducing methane emissions and soil contamination.
+            </p>
+          </div>
+          
+          <div class="card animate-on-scroll">
+            <h3 style="color:var(--primary)">Clean Energy Production</h3>
+            <p style="color:var(--text-light);margin-top:1rem">
+              Our biogas and methanol production provide sustainable energy alternatives, reducing reliance on fossil fuels.
+            </p>
+          </div>
+          
+          <div class="card animate-on-scroll">
+            <h3 style="color:var(--primary)">Circular Economy</h3>
+            <p style="color:var(--text-light);margin-top:1rem">
+              By recycling materials back into the production cycle, we create economic value while conserving natural resources.
+            </p>
           </div>
         </div>
       </div>
@@ -924,60 +1470,60 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" style="padding:80px 0;background:linear-gradient(to bottom, #e0f0f0, #d8e8e8)">
+  <section id="contact" style="padding:100px 0;background:linear-gradient(to bottom, #e0f0f0, #d8e8e8)">
     <div class="container">
-      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:1.5rem;color:var(--primary)">Contact Us</h2>
+      <h2 style="font:800 2rem/1.2 Poppins;margin-bottom:2.5rem;color:var(--primary)" class="animate-on-scroll">Contact Us</h2>
       
-      <div class="grid quick" style="margin-bottom:3rem">
-        <div class="card">
+      <div class="grid quick" style="margin-bottom:3.5rem">
+        <div class="card animate-on-scroll">
           <h3 style="display:flex;align-items:center;gap:.6rem">
             <i class="bi bi-geo-alt" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
             Physical Address
           </h3>
-          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:.8rem">
+          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:1rem;margin-bottom:2rem">
             Tegeta Nyuki, Nyuki House Building, second floor, Dar Es Salaam, Tanzania.
           </p>
         </div>
         
-        <div class="card">
+        <div class="card animate-on-scroll">
           <h3 style="display:flex;align-items:center;gap:.6rem">
             <i class="bi bi-telephone" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
             Contact Numbers
           </h3>
-          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:.8rem">
+          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:1rem;margin-bottom:2rem">
             +255 762 319 605<br>
             (0) 734 114 393
           </p>
-          <a class="btn btn-primary" href="tel:+255762319605" style="margin-top:.6rem;font-size:.88rem;padding:.65rem .95rem">
+          <a class="btn btn-primary" href="tel:+255762319605" style="font-size:.88rem;padding:.75rem 1.2rem">
             <i class="bi bi-telephone-outbound"></i> Call Now
           </a>
         </div>
         
-        <div class="card">
+        <div class="card animate-on-scroll">
           <h3 style="display:flex;align-items:center;gap:.6rem">
             <i class="bi bi-envelope-open" style="background:linear-gradient(135deg, var(--primary), var(--primary-light));color:#fff;width:32px;height:32px;display:grid;place-items:center;border-radius:50%"></i> 
             Email
           </h3>
-          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:.8rem">
+          <p class="muted" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:1rem;margin-bottom:2rem">
             info@afiasolutions.co.tz
           </p>
-          <a class="btn btn-primary" href="mailto:info@afiasolutions.co.tz" style="margin-top:.6rem;font-size:.88rem;padding:.65rem .95rem">
+          <a class="btn btn-primary" href="mailto:info@afiasolutions.co.tz" style="font-size:.88rem;padding:.75rem 1.2rem">
             <i class="bi bi-envelope"></i> Email Us
           </a>
         </div>
       </div>
       
-      <div class="card">
-        <h3 style="font:800 1.3rem/1.2 Poppins;margin:0 0 .6rem">
+      <div class="card animate-on-scroll">
+        <h3 style="font:800 1.3rem/1.2 Poppins;margin:0 0 2rem;color:var(--primary)">
           <i class="bi bi-chat-dots" style="color:var(--primary)"></i> Partner With Us
         </h3>
-        <p class="muted" style="margin:.1rem 0 1.2rem;font-size:1.05rem;line-height:1.6;color:var(--text-light)">
+        <p class="muted" style="margin:.1rem 0 2rem;font-size:1.05rem;line-height:1.6;color:var(--text-light)">
           Interested in our waste management solutions? Whether you're a municipality, waste contractor, business, or household, 
           we can help transform your waste into value.
         </p>
         <form action="mailto:info@afiasolutions.co.tz" method="post" enctype="text/plain" onsubmit="return validateForm(this)">
           <input name="name" placeholder="Full Name / Organization" required />
-          <div class="grid" style="grid-template-columns:1fr 1fr;gap:.8rem">
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:1.5rem">
             <input name="email" type="email" placeholder="Email" required />
             <input name="phone" type="tel" placeholder="Phone Number" />
           </div>
@@ -991,13 +1537,13 @@
             <option>Other</option>
           </select>
           <textarea name="message" placeholder="Tell us about your waste management needs or partnership interest..." style="min-height:140px"></textarea>
-          <button class="btn btn-primary" type="submit" style="font-size:.92rem;padding:.75rem 1.15rem">
+          <button class="btn btn-primary" type="submit" style="font-size:.92rem;padding:.85rem 1.3rem">
             <i class="bi bi-send"></i> Send Message
           </button>
         </form>
-        <div style="text-align:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)">
-          <p style="color:var(--text-light);margin-bottom:.5rem">Prefer to chat on WhatsApp?</p>
-          <a class="btn btn-green" href="https://wa.me/255742930833" target="_blank" style="font-size:.9rem;padding:.6rem 1rem">
+        <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)">
+          <p style="color:var(--text-light);margin-bottom:1rem;font-size:1.05rem">Prefer to chat on WhatsApp?</p>
+          <a class="btn btn-green" href="https://wa.me/message/33SMSAROJXKDP1" target="_blank" style="font-size:.9rem;padding:.7rem 1.2rem">
             <i class="bi bi-whatsapp"></i> Chat on WhatsApp
           </a>
         </div>
@@ -1008,44 +1554,48 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;margin-bottom:2rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2.5rem;margin-bottom:2.5rem">
         <div>
-          <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.5rem">
-            <div class="logo" style="width:60px;height:60px">
-              <div class="logo-text" style="font-size:1.2rem">
-                AFIA
-                <span style="font-size:.7rem">Terminal</span>
-              </div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.8rem">
+            <!-- FOOTER LOGO - EMPTY src FOR YOU TO INSERT -->
+            <div class="logo" style="width:60px;height:60px;background:#fff;">
+              <img src="images/logo.png" alt="Afia Orbit Logo" style="width:100%;height:100%;object-fit:contain;padding:8px;" />
             </div>
-            <h4 style="margin:0;color:var(--primary);font-size:1.5rem">Afia Orbit</h4>
+            <h4 style="margin:0;color:#fff;font-size:1.5rem">Afia Orbit</h4>
           </div>
-          <p class="ft-note" style="color:var(--text-light)">Transforming Waste into Clean Energy</p>
+          <p class="ft-note" style="color:rgba(255, 255, 255, 0.8)">Transforming Waste into Clean Energy</p>
         </div>
         
         <div>
-          <h4 style="color:var(--primary);margin-bottom:1rem">Quick Links</h4>
+          <h4 style="color:#fff;margin-bottom:1.2rem">Quick Links</h4>
           <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
-            <a href="#home" style="color:var(--text-light);text-decoration:none">Home</a>
-            <a href="#about" style="color:var(--text-light);text-decoration:none">About</a>
-            <a href="#products" style="color:var(--text-light);text-decoration:none">Products</a>
-            <a href="#impact" style="color:var(--text-light);text-decoration:none">Impact</a>
-            <a href="#contact" style="color:var(--text-light);text-decoration:none">Contact</a>
+            <a href="#home" style="color:rgba(255, 255, 255, 0.8);text-decoration:none;padding:.2rem 0">Home</a>
+            <a href="#about" style="color:rgba(255, 255, 255, 0.8);text-decoration:none;padding:.2rem 0">About</a>
+            <a href="#products" style="color:rgba(255, 255, 255, 0.8);text-decoration:none;padding:.2rem 0">Products</a>
+            <a href="#impact" style="color:rgba(255, 255, 255, 0.8);text-decoration:none;padding:.2rem 0">Impact</a>
+            <a href="#contact" style="color:rgba(255, 255, 255, 0.8);text-decoration:none;padding:.2rem 0">Contact</a>
           </div>
         </div>
         
         <div>
-          <h4 style="color:var(--primary);margin-bottom:1rem">Connect</h4>
-          <div style="display:flex;gap:1rem;">
-            <a href="https://wa.me/255742930833" target="_blank" style="color:var(--text-light);text-decoration:none">
-              <i class="bi bi-whatsapp"></i> WhatsApp
+          <h4 style="color:#fff;margin-bottom:1.2rem">Connect</h4>
+          <div class="footer-social" style="display:flex;gap:.8rem">
+            <a href="https://www.instagram.com/afiaorbit?igsh=dzN0d2cydThkeW9p&utm_source=qr" target="_blank" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/afia-orbit/" target="_blank" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://wa.me/message/33SMSAROJXKDP1" target="_blank" aria-label="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
             </a>
           </div>
         </div>
       </div>
       
-      <div style="border-top:1px solid var(--line);padding-top:1.5rem;color:var(--text-light);text-align:center">
-        <p>© 2025 Afia Orbit. All rights reserved.</p>
-        <p style="margin-top:.5rem;font-size:.9rem">Tech-based waste management solutions for a sustainable Tanzania</p>
+      <div style="border-top:1px solid rgba(255, 255, 255, 0.2);padding-top:2rem;color:rgba(255, 255, 255, 0.8);text-align:center">
+        <p style="margin-bottom:.5rem">© 2026 Afia Orbit. All rights reserved.</p>
+        <p style="font-size:.9rem">Tech-based waste management solutions for a sustainable Tanzania</p>
       </div>
     </div>
   </footer>
@@ -1109,6 +1659,25 @@
     document.addEventListener('scroll', onScroll); 
     onScroll();
 
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
     // Active link highlighting
     (function() {
       const currentPage = window.location.hash || '#home';
@@ -1136,11 +1705,46 @@
               // Update active link
               links.forEach(link => link.removeAttribute('aria-current'));
               this.setAttribute('aria-current', 'page');
+              
+              // Update URL without page reload
+              history.pushState(null, null, targetId);
             }
           }
         });
       });
+      
+      // Update active link on scroll
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= (sectionTop - 100)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        links.forEach(link => {
+          link.removeAttribute('aria-current');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.setAttribute('aria-current', 'page');
+          }
+        });
+      });
     })();
+    
+    // Initialize animations on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add a slight delay to ensure all elements are loaded
+      setTimeout(() => {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add('visible');
+          }
+        });
+      }, 100);
+    });
   </script>
 </body>
 </html>
